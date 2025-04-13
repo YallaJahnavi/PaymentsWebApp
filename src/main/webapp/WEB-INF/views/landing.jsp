@@ -40,5 +40,6 @@
 <body>
     <h1>Welcome to Payments Web App</h1>
     <a href="login">Login</a>
+    <a href="register">Registration</a>
 </body>
 </html>
