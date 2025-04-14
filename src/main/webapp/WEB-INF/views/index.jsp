@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" session="true"%>
+    <%@ page import="com.example.PaymentsWebApp.Entity.UserEntity" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,18 +34,34 @@
 </head>
 <body>
 
-<!-- Fixed Navbar -->
 <div class="navbar">
     <a href="profile">Profile</a>
-    <a href="transactions">Transactions History</a>
+    <a href="viewtransactions">Transactions History</a>
     <a href="bankstatement">Bank Statement</a>
     <a href="logout">Logout</a>
 </div>
 
-<!-- Page Content -->
+
 <div class="content">
-    <h2>Welcome User</h2>
-    <p>This is your home page.</p>
+    <!-- <h2>Welcome User</h2>
+    <p>This is your home page.</p>-->
+    <div class="content">
+    <%
+        UserEntity loggedInUser = (UserEntity) session.getAttribute("loggedInUser");
+        if (loggedInUser != null) {
+    %>
+        <h2>Welcome, <%= loggedInUser.getFirstName() + loggedInUser.getLastName() %>!</h2>
+        <p>This is your home page.</p>
+    <%
+        } else {
+    %>
+        <h2>Welcome Guest</h2>
+        <p>Please <a href="login">log in</a> to access your account.</p>
+    <%
+        }
+    %>
+</div>
+    
 </div>
 
 </body>
