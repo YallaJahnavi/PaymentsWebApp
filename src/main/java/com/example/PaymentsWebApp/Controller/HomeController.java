@@ -1,3 +1,4 @@
+
 package com.example.PaymentsWebApp.Controller;
 
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,6 @@ public class HomeController {
 
 	@GetMapping("/index")
 	public String homePage() {
-		
 		return "index"; // Renders home.jsp
 	}
 
